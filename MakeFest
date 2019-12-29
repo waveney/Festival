@@ -1,5 +1,6 @@
-ln ../wmff/rdev.wimbornefolk.co.uk/int/*.php int
-ln ../wmff/rdev.wimbornefolk.co.uk/js/*.js js
-ln ../wmff/rdev.wimbornefolk.co.uk/css/*.css css
-ln ../wmff/rdev.wimbornefolk.co.uk/images/icons/* images/icons
+ln ../wmff/rdev.wimbornefolk.co.uk/int/*.php int 2>/dev/null
+ln ../wmff/rdev.wimbornefolk.co.uk/js/*.js js 2>/dev/null
+ln ../wmff/rdev.wimbornefolk.co.uk/css/*.css css 2>/dev/null
+ln ../wmff/rdev.wimbornefolk.co.uk/images/icons/* images/icons 2>/dev/null
+ln ../wmff/rdev.wimbornefolk.co.uk/Schema/* Schema 2>/dev/null
 
