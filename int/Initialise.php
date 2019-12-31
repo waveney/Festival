@@ -227,6 +227,41 @@ function Preload_Data() {
   }
 }
 
+function Create_htaccess() {
+  if (file_exists("../.htaccess")) {
+    // Read ht access, if it does not have rewriteengine on append it, do the same with the rule.  If change write file back
+    $htaccess = file_get_contents("../.htaccess");
+    $htac_changed = 0;
+    
+    if (!strstr($htaccess,"RewriteEngine on")) {
+      $htaccess .= "RewriteEngine on\n";
+      $htac_changed = 1;
+    }
+    
+     if (!strstr($htaccess,'RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]')) {
+      $htaccess .= 'RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]' . "\n";
+      $htac_changed = 1;
+    }
+    
+    if ($htac_changed) {
+      if (is_writable("../.htaccess")) {
+        file_put_contents("../.htaccess",$htaccess);
+        echo "htaccess modified<p>";
+      } else {
+        echo "htaccess needs modification but can't be writen to by Initialise<p>";
+        return 0; 
+      }
+    }
+  } else {
+    $htac = 'RewriteEngine on
+RewriteRule ^([^.?]+)$ %{REQUEST_URI}.php [L]
+';
+    file_put_contents("../.htaccess",$htac);
+    echo "htaccess created<p>";
+  }
+  return 1;
+}
+
 // Updating code - not yet written
 function BringUptoDate($oldversion) {
   
@@ -258,6 +293,8 @@ function Check_Sysadmin() {
 
 function Setup_Sysadmin() {
   global $Access_Type;
+  include_once("UserLib.php");
+  include_once("DocLib.php");
   
   $Users = Get_AllUsers(2);
   $isasys = 0;
@@ -286,6 +323,11 @@ if (isset($_POST['SETUPSYS'])) {
   Create_Databases();
   Create_Skeema_local();
   Preload_Data();
+  if (!Create_htaccess()) {
+    echo "Please fix and re-run";
+    exit;
+  };
+
   include_once("fest.php");
   Check_Sysadmin();
 }
