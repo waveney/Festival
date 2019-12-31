@@ -1,7 +1,7 @@
 <?php
 
-$homes = ['int','js','css','images/icons','Schema'];
-$dirs = ['int/*.php','int/skeema','js/*.js','css/*.css','images/icons/*','Schema/*'];
+$homes = ['int','js','css','images/icons','Schema','festfiles'];
+$dirs = ['int/*.php','int/skeema','js/*.js','css/*.css','images/icons/*','Schema/*','festfiles/*'];
 $Src = '../wmff/rdev.wimbornefolk.co.uk/';
 $tlen = strlen($Src);
 
