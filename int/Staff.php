@@ -381,11 +381,11 @@
   }
     
 // *********************** GENERAL ADMIN *********************************************************
-  if (StaffTable('Admin')) {
+  if (StaffTable('All')) {
     echo "<h2>General Admin</h2>\n";
     echo "<ul>\n";
 
-    if (Access('Committee','News')) {
+    if (Capability('Admin') && Access('Committee','News')) {
 //      echo "<li><a href=NewsManage>News Management</a>";
       echo "<li><a href=ListArticles>Front Page Article Management</a>";
       echo "<li><a href=LinkManage>Manage Other Fest Links</a>\n";
