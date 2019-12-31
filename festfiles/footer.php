@@ -19,7 +19,7 @@
 -->
 <div class="mini" style="border-bottom:0; margin-bottom:0;text-decoration:none;">
 
-<p>Photos remain Copyright of their respective owners and cannot be reproduced or used without permission.</p>
+Photos remain Copyright of their respective owners and cannot be reproduced or used without permission.</p>
 
 <p>Festival Software by <a href=http://wavwebs.com style=color:white;>Waveney Web Services</a> - Version 
 <?php 
