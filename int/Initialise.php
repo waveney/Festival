@@ -103,7 +103,7 @@ function Create_Directories() {  // Makes all needed directories and adds .htacc
            ['int/Store',1],
            ['int/Temp',0],
           ];
-  $LinkedDirs = ['js','files','cache','images'];
+  $LinkedDirs = ['js','files','cache','images','festfiles'];
   foreach($Dirs as $D) {
     if (!file_exists("../" . $D[0])) {
     
