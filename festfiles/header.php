@@ -1,7 +1,7 @@
 <?php
   global $YEARDATA,$FESTSYS,$CALYEAR;
 
-  echo "<meta name=description content='Festival Software'>i\n";
+  echo "<meta name=description content='Festival Software'>\n";
   echo "<meta name=keywords content=''>\n";
 
   $V = $FESTSYS['V'];

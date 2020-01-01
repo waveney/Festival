@@ -9,6 +9,15 @@ foreach ($homes as $home) {
   if (!file_exists($home)) mkdir($home,0777,1);
 }
 
+/* Need to make sure skeema is up to date before copying*/
+
+echo "Changing to wmff home\n";
+chdir("/home/rjp/Projects/wmff/rdev.wimbornefolk.co.uk/Schema");
+echo "Calling Skeema\n";
+system("../int/skeema pull");
+echo "Returning\n\n";
+chdir("/home/rjp/Projects/fest");
+
 foreach ($dirs as $dir) {
   foreach (glob($Src . $dir) as $sf) {
 //    echo "Checking $sf: ";

@@ -222,7 +222,8 @@ function Preload_Data() {
   $file = fopen('festfiles/EmailProformas.sql','r');
   while ($line = fgets($file)) {
     [$key,$value] = explode(',',$line,2);
-    if (!isset($Pros[$key])) {
+    if ($key && $value && !isset($Pros[$key])) {
+      $value = str_replace('\r\n',"\n",$value);
       $ent = ['SN'=>$key,'Body'=>$value];
       insert_db('EmailProformas',$ent);
       echo "Added Email Proforma - $key<Br>";
