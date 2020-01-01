@@ -223,7 +223,8 @@ function Preload_Data() {
   while ($line = fgets($file)) {
     [$key,$value] = explode(',',$line,2);
     if (!isset($Pros[$key])) {
-      insert_db('EmailProformas',['SN'=>$key,'Body'=>$value]);
+      $ent = ['SN'=>$key,'Body'=>$value];
+      insert_db('EmailProformas',$ent);
       echo "Added Email Proforma - $key<Br>";
     }
   }
