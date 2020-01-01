@@ -29,7 +29,7 @@
   echo "<th colspan=2><a href=javascript:SortTable(" . $coln++ . ",'T')>Name</a>\n";
   echo "<th><a href=javascript:SortTable(" . $coln++ . ",'T')>Body of Message</a>\n";
   echo "</thead><tbody>";
-  foreach($Pros as $t) {
+  if ($Pros) foreach($Pros as $t) {
     $i = $t['id'];
     echo "<tr><td>$i" . fm_text1("",$t,'SN',2,'','',"SN$i");
     echo "<td>" . fm_basictextarea($t,'Body',6,8,'',"Body$i");

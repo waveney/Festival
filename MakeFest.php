@@ -29,18 +29,5 @@ foreach ($dirs as $dir) {
     
   }
 }
-/*
 
-
-ln ../wmff/rdev.wimbornefolk.co.uk/int/*.php int 2>/dev/null
-ln ../wmff/rdev.wimbornefolk.co.uk/int/skeema int 2>/dev/null
-ln ../wmff/rdev.wimbornefolk.co.uk/js/*.js js 2>/dev/null
-ln ../wmff/rdev.wimbornefolk.co.uk/css/*.css css 2>/dev/null
-ln ../wmff/rdev.wimbornefolk.co.uk/images/icons/* images/icons 2>/dev/null
-ln ../wmff/rdev.wimbornefolk.co.uk/Schema/* Schema 2>/dev/null
-# New Version
-#!/usr/bin/perl
-@dirs = [['int/*.php','int'],['int/skeema','int'],['js/*.js','js'],['css/*.css','css'],['images/icons/*','images/icons'],['Schema/*','Schema']];
-$Src = '../wmff/rdev.wimbornefolk.co.uk/';
-*/
 

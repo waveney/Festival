@@ -381,7 +381,7 @@
   }
     
 // *********************** GENERAL ADMIN *********************************************************
-  if (StaffTable('All')) {
+  if (StaffTable('Any')) {
     echo "<h2>General Admin</h2>\n";
     echo "<ul>\n";
 
