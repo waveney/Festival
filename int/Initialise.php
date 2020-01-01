@@ -216,13 +216,15 @@ function Preload_Data() {
 // Email proformas - lots of these read from munged sql dump
   echo "About to Create Email Proformas<p>";
   
+  include_once("Email.php"); 
+  $Pros=Get_Email_Proformas(1);
+  
   $file = fopen('festfiles/EmailProformas.sql','r');
   while ($line = fgets($file)) {
-    $bits = explode(',',$line,2);
-    $key = preg_replace('/\'/','',$bits[0]);
-    if (!db_get('EmailProformas','SN=' . $bits[0])) {
-      $db->query("INSERT INTO EmailProformas SET SN=" . $bits[0] . ", Body=" . trim($bits[1]));
-      echo "Created Email Proforma: $key<br>\n";
+    [$key,$value] = explode(',',$line,2);
+    if (!isset($Pros[$key])) {
+      insert_db('EmailProformas',['SN'=>$key,'Body'=>$value]);
+      echo "Added Email Proforma - $key<Br>";
     }
   }
 }
