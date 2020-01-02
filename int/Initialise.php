@@ -161,6 +161,7 @@ user=" . $CONF['user'] . "\n";
     file_put_contents("../Schema/.skeema",$skeema);
   }
   
+  chmod("skeema",0755);
   chdir ("..");
   system("int/skeema push"); // push for live
   chdir ("int");
