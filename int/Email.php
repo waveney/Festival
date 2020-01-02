@@ -200,6 +200,13 @@ function Get_Email_Proformas() {
   return $full;
 }
 
+function Get_Email_Proformas_By_Name() { 
+  global $db;
+  $res = $db->query("SELECT * FROM EmailProformas ORDER BY SN ");
+  if ($res) while ($typ = $res->fetch_assoc()) $full[$typ['SN']] = $typ;
+  return $full;
+}
+
 function Get_Email_Proforma($id) {
   global $db;
   if (is_numeric($id)) {

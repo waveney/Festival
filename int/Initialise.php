@@ -218,7 +218,7 @@ function Preload_Data() {
   echo "About to Create Email Proformas<p>";
   
   include_once("Email.php"); 
-  $Pros=Get_Email_Proformas(1);
+  $Pros=Get_Email_Proformas_By_Name(1);
   
   $file = fopen('festfiles/EmailProformas.sql','r');
   while ($line = fgets($file)) {
