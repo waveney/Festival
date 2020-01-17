@@ -362,7 +362,7 @@ function Replace_Help($Area='',$Right=0) {
   ['*PRICE*','Total Price quoted','Trade'],
   ['*LINK*','Personal Link for Participants','Trade, Volunteers, Performers'],
   ['*REMOVE*','Remove Request','Trade'],
-  ['*WMFFLINK*','Link for Committee members direct to that Trader/Volunteer/Performer etc','Trade, Volunteers'],
+  ['*FESTLINK*','Link for Committee members direct to that Trader/Volunteer/Performer etc','Trade, Volunteers'],
   ['*DEPOSIT*','Deposit Required','Trade, LNL, BB'],
   ['*BALANCE*','Balance Required','Trade'],
   ['*DETAILS*','Full details of booking etc','Trade, BB, LOL, LNL, Volunteers, Invoices'],

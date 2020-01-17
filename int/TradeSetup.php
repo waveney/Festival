@@ -28,7 +28,7 @@
       echo fm_text1("",$Pitch,'SN',1.2,'','',"SN$i") . fm_text1("",$Pitch,'Colour',0.35,'','',"Colour$i");
       echo fm_text1("",$Pitch,'Font',0.10,'','',"Font$i");
       echo fm_hidden("Loc$i",$loc);
-      echo fm_hidden('Year$i',$Pitch['Year']);
+      echo fm_hidden("Year$i",$Pitch['Year']);
       $posn = max($posn, $Pitch['Posn']);
     }
     $Pitch['Posn'] = $posn+1; 
@@ -50,6 +50,7 @@
 
   $loc = $_REQUEST['i'];
   $Pitches = Get_Trade_Pitches($loc,$YEAR);  
+//  var_dump($Pitches);
   // START HERE
   if (isset($_POST['Update'])) {
 //    var_dump($_POST);
@@ -78,12 +79,14 @@
   Pitch_Map($tloc,$Pitches);
   PitchList();
   
+  echo "<h2>";
   if ($YEAR < $PLANYEAR) {
-    echo "<h2><a href=TradeSetup?COPY&i=$loc&Y=$YEAR>Copy to Current</a></h2>";
+    echo "<a href=TradeSetup?COPY&i=$loc&Y=$YEAR>Copy to Current</a>,";
   } else {
     $LYear = $YEAR-1;
-    echo "<h2><a href=TradeSetup?COPY&i=$loc&Y=$LYear>Copy $LYear to Current</a></h2>";
+    echo "<a href=TradeSetup?COPY&i=$loc&Y=$LYear>Copy $LYear to Current</a>,";
   }
+  echo " <a href=TradeLocs?Y=$YEAR>Trade Locs</a></h2>";
   dotail();
  
   

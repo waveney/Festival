@@ -241,7 +241,8 @@ $FESTSYS = Get_FESTSYS();
 $CALYEAR = gmdate('Y');
 $SHOWYEAR = $FESTSYS['ShowYear'];
 $YEAR = $PLANYEAR = $FESTSYS['PlanYear'];  //$YEAR can be overridden
-$FESTSYS['V'] = $CALYEAR . "." . file_get_contents("Version.php");
+include_once("Version.php");
+$FESTSYS['V'] = $CALYEAR . ".$VERSION";
 
 function Feature($Name,$default='') {  // Return value of feature if set from FESTSYS
   static $Features;

@@ -14,7 +14,7 @@
   }
   $host= "https://" . $_SERVER['HTTP_HOST'];
 
-  if (0) echo "
+  if (0) { echo "
 <div class=navigation>
 <a href=$host/ onmouseover=NoHoverSticky()>Home</a>
 <!-- <a href=$host/news.php onmouseover=NoHoverSticky()>News</a> -->
@@ -126,6 +126,9 @@
 </div>-->
 </div>
 ";
+  } else {
+    echo "<a href=$host/>Home</a>";
+  }
 
   global $USERID,$PerfTypes;
   if ( isset($USER{'AccessLevel'}) && $USER{'AccessLevel'} == $Access_Type['Participant'] ) {
