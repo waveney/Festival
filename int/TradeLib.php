@@ -1106,7 +1106,12 @@ function Trade_Main($Mode,$Program,$iddd=0) {
   Show_Trader($Tid,$Trad,$Program,$Mode);
   if ($Mode < 2 && !$Orgs) Show_Trade_Year($Tid,$Trady,$YEAR,$Mode);
 
-  if ($Mode == 0 && !$Orgs) Trade_TandC();
+  if ($Mode == 0 && !$Orgs) {
+    Trade_TandC();
+    echo $FESTSYS['TradeTimes'];
+    echo $FESTSYS['TradeFAQ'];
+  }
+
   if ($Tid > 0) {
     if ($Mode < 2 && !$Orgs) {
       if (!isset($Trady['BookingState'])) { $Trady['BookingState'] = 0; $Trady['Fee'] = 0; }
