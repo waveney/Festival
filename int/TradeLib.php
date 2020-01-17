@@ -939,7 +939,7 @@ function Trade_Main($Mode,$Program,$iddd=0) {
 // Mode 0 = Traders, 1 = ctte, 2 = Finance (for other invoices) Program = Trade/Trader $iddd if set starts it up, with that Tid
 
   global $YEAR,$PLANYEAR,$Mess,$Action,$Trade_State,$Trade_States,$USER,$TS_Actions,$ButExtra,$ButTrader,$ButAdmin,$RestrictButs;
-  global $TradeTypeData,$TradeLocData;
+  global $TradeTypeData,$TradeLocData,$FESTSYS;
   include_once("DateTime.php"); 
   echo "<div class=content><h2>Add/Edit " . ($Mode<2?'Trade Stall Booking':'Buisness or Organisation') . "</h2>";
 
