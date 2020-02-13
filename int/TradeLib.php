@@ -10,9 +10,9 @@ $TS_Actions = array('Submit,Invite,Invite Better',
                 'Resend,Submit',
                 'Resend',
                 'Resend,Submit',
-                'Resend,Quote,Accept,Invite,Decline,Hold,Cancel',
-                'Resend,Quote,Invite,Accept,Decline,UnQuote',
-                'Pitch,Moved,Resend,Cancel',
+                'Resend,Quote,Accept,Invite,Decline,Hold,Cancel,Invite Better',
+                'Resend,Quote,Invite,Accept,Decline,UnQuote,LastWeek',
+                'Resend,Cancel',
                 'Pitch,Moved,Resend,Send Bal,Cancel',
                 'Pitch,Moved,Resend,Chase,Cancel',
                 'Pitch,Moved,Resend,Cancel',
@@ -41,6 +41,7 @@ $ButExtra = array(
         'Pitch'=>'title="Change of Pitch Number"',
         'Moved'=>'title="Pitch Moved"',
         'Balance'=>'title="Send Balance Payment Request',
+        'LastWeek'=>'title="Last week of Quote"',
         ); 
 $ButTrader = array('Submit','Accept','Decline','Cancel','Resend'); // Actions Traders can do
 $ButAdmin = array('Paid','Dep Paid');
@@ -254,6 +255,7 @@ function Get_All_Businesses($type=0) { // 0=names, 1=all
 
 
 function Put_Trader(&$now) {
+//  debug_print_backtrace();
   $e=$now['Tid'];
   $Cur = Get_Trader($e);
   if ($Cur) return Update_db('Trade',$Cur,$now);
@@ -769,6 +771,11 @@ function Trader_Details($key,&$data,$att=0) {
           $Pay['Code'] . "<p>";
     };
     return "";
+  case 'VAT': if (Feature('FestVatNumber')) {
+      return "Prices include VAT at " . Feature('VatRate') . "%<p>";
+    } else {
+      return "";
+    }
 
 /* TODO DUFF
   case 'DUEDATE' return 
@@ -1359,6 +1366,10 @@ function Trade_Action($Action,&$Trad,&$Trady,$Mode=0,$Hist='',$data='', $invid=0
       Send_Trader_Email($Trad,$Trady,$ProformaName);    
     }
     $NewState = $Trade_State['Balance Requested']; 
+    break;
+  
+  case 'LastWeek' : // Send Last week message
+    Send_Trader_Email($Trad,$Trady,'Trade_Quote_WeekLeft');   
     break;
   
   case 'Resend Finance':
