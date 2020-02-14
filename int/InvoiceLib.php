@@ -790,4 +790,14 @@ function Pay_Code_Find($src,$srcid) {
   return 0;   
 }
 
+function Pay_Code_Remove($src,$srcid) {
+  global $db;
+  while ($pay = Pay_Code_Find($src,$srcid)) {
+    $pay['Year'] = - $pay['Year'];
+    Put_PayCode($pay);
+  };
+  return 0;   
+}
+
+
 ?>
